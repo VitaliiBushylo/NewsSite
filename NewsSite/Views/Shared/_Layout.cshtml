@@ -1,0 +1,38 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="~/Content/bootstrap.css" />
+    <link rel="stylesheet" href="~/Content/bootstrap-theme.css"/>
+    <link rel="stylesheet" href="~/Content/NewsStyles.css"/>
+    <script type="text/javascript" src="~/scripts/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="~/scripts/Clock.js"></script>
+    <title>@ViewBag.Title</title>
+</head>
+<body class="container">
+<div id="NewsMenu" class="row text-center">
+    @Html.ActionLink("News Stream", "Index", "NewsList", null, new {@class="col-md-2"})
+    @Html.ActionLink("About Us", "AboutUs", "Home", null, new { @class = "col-md-2" })
+    @Html.ActionLink("Contact Us", "ContactUs", "Home", null, new { @class = "col-md-2" })
+</div>
+<div class="row">
+    <h1 class="text-center">@ViewBag.ViewTitle</h1>
+</div>
+<hr/>
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+        @RenderBody()
+    </div>
+</div>
+<hr/>
+<footer class="row">
+    <h5 id="Clock" class="text-center"></h5>
+</footer>
+</body>
+</html>

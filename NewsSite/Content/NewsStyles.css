@@ -1,0 +1,18 @@
+﻿#NewsMenu {
+    background: beige;
+    padding: 20px;
+}
+
+#NewsMenu a {
+    text-decoration: none;
+}
+
+#NewsMenu a:hover {
+    background: cornflowerblue;
+    color: azure;
+}
+
+footer {
+    background: beige;
+    padding: 20px;
+}
