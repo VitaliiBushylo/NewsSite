@@ -16,7 +16,7 @@ namespace NewsSite
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}",
-                defaults: new { controller = "NewaList", action = "Index" }
+                defaults: new { controller = "NewsList", action = "Index" }
             );
         }
     }
