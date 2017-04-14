@@ -14,6 +14,11 @@ namespace NewsSite
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+               name: "HomeRoutes",
+               url: "{action}",
+               defaults: new { controller = "Home" });
+
+            routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}",
                 defaults: new { controller = "NewsList", action = "Index" }
