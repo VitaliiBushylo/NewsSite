@@ -1,0 +1,46 @@
+﻿@using NewsSite.Models
+@model System.Collections.Generic.List<string>
+
+@{
+    ViewBag.Title = "Image Gallery";
+    ViewBag.ViewTitle = "Image Gallery";
+    ViewBag.AllImgNames = "";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    try
+    {
+        foreach (var filePath in Directory.EnumerateFiles(@"D:\GL\desktop images\temp"))
+        {
+            var img = new FileInfo(filePath);
+            var name = img.Name.Substring(0, img.Name.IndexOf("."));
+            ViewBag.AllImgNames += name + ";";
+            Model.Add(name);
+        }
+
+        ViewBag.AllImgNames = ViewBag.AllImgNames.Remove(ViewBag.AllImgNames.Length - 1);
+    }
+    catch (Exception ex)
+    {
+        <h4>@ex.Message</h4>
+    }
+}
+
+<h3 id="ImageTitle" class="text-center">@Model.FirstOrDefault()</h3>
+<img id="CurrentImg"
+     currentIndex="0"
+     totalCount="@Model.Count"
+     src="@Url.Action("ImageGallery", "Home", new {filename = @Model.FirstOrDefault()})"
+     class="img-thumbnail"
+     alt="@Model.FirstOrDefault()" />
+<div class="row">
+    <div class="col-md-1 col-md-offset-1">
+        <span id="GoLeftBtn" previousImg="" class="glyphicon glyphicon-arrow-left btn" />
+    </div>
+    <div class="col-md-1 col-md-offset-8">
+        <span id="GoRightBtn" nextImg="" class="glyphicon glyphicon-arrow-right btn"/>
+    </div>
+</div>
+<div id="imgNamesStorage" class="hidden">@ViewBag.AllImgNames</div>
+<script type="text/javascript" src="~/scripts/ImageGallery.js"></script>
