@@ -7,12 +7,20 @@ using NewsSite.Models;
 
 namespace NewsSite.Controllers
 {
-    public class NewsListController : Controller
+    public class ContactUsController : Controller
     {
+
+        [HttpGet]
         public ActionResult Index()
         {
-            var news = new NewsModel();
-            return View(news);
+            var feedback = new FeedbackEntry() { UserName = "Your name", Email = "your.email@i.ua" };
+            return View(feedback);
+        }
+
+        [HttpPost]
+        public ActionResult Index(FeedbackEntry feedbackEntry)
+        {
+            return View();
         }
 
         [ChildActionOnly]

@@ -12,17 +12,13 @@ namespace NewsSite
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-            
-            routes.MapRoute(
-               name: "HomeRoute",
-               url: "{action}/{filename}",
-               defaults: new { controller = "Home", filename = UrlParameter.Optional });
+
+            routes.MapMvcAttributeRoutes();
 
             routes.MapRoute(
-                name: "Default",
-                url: "{controller}/{action}",
-                defaults: new { controller = "NewsList", action = "Index" }
-            );
+               name: "HomeRoute",
+               url: "{controller}/{action}/{filename}",
+               defaults: new { controller = "ImageGallery", action = "Index", filename = UrlParameter.Optional });
         }
     }
 }

@@ -15,7 +15,7 @@
             return;
 
         var nextImg = $("#GoRightBtn").attr("nextImg");
-        $("#CurrentImg").attr("src", "ImageGallery/" + nextImg);
+        $("#CurrentImg").attr("src", "/ImageGallery/Index/" + nextImg);
 
         currentImgIndex++;
         
@@ -37,7 +37,7 @@
             return;
 
         var previousImg = $("#GoLeftBtn").attr("previousImg");
-        $("#CurrentImg").attr("src", "ImageGallery/" + previousImg);
+        $("#CurrentImg").attr("src", "/ImageGallery/Index/" + previousImg);
 
         currentImgIndex--;
 

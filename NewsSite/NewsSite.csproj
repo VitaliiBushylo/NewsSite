@@ -142,17 +142,23 @@
     <Content Include="scripts\jquery-1.9.1.js" />
     <Content Include="scripts\jquery-1.9.1.min.js" />
     <Content Include="Web.config" />
-    <Content Include="Views\Home\AboutUs.cshtml" />
-    <Content Include="Views\Home\ContactUs.cshtml" />
+    <Content Include="Views\AboutUs\Index.cshtml" />
+    <Content Include="Views\ContactUs\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\AboutUsController.cs" />
+    <Compile Include="Controllers\ContactUsController.cs" />
+    <Compile Include="Controllers\ImageGalleryController.cs" />
     <Compile Include="Controllers\NewsListController.cs" />
+    <Compile Include="Controllers\RequestInfoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\RequestInfoView.cs" />
+    <Compile Include="Infrastructure\ViewEngine.cs" />
+    <Compile Include="Models\ApplicationUpTimer.cs" />
     <Compile Include="Models\FeedbackEntry.cs" />
     <Compile Include="Models\Image.cs" />
     <Compile Include="Models\NewsEntry.cs" />
@@ -167,7 +173,8 @@
     </Content>
     <Content Include="Views\NewsList\Index.cshtml" />
     <Content Include="scripts\jquery-1.9.1.min.map" />
-    <Content Include="Views\Home\ImageGallery.cshtml" />
+    <Content Include="Views\ImageGallery\Index.cshtml" />
+    <Content Include="Views\Shared\_ApplicationUptime.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

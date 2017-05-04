@@ -16,11 +16,14 @@
     <title>@ViewBag.Title</title>
 </head>
 <body class="container">
+<div class="row text-center">
+    @Html.Action("Uptime")
+</div>
 <div id="NewsMenu" class="row text-center">
-    @Html.ActionLink("News Stream", "Index", "NewsList", null, new {@class="col-md-2"})
-    @Html.ActionLink("About Us", "AboutUs", "Home", null, new { @class = "col-md-2" })
-    @Html.ActionLink("Contact Us", "ContactUs", "Home", null, new { @class = "col-md-2" })
-    @Html.ActionLink("Image Gallery", "ImageGallery", "Home", null, new {@class = "col-md-2" })
+    @Html.ActionLink("News Stream", "Index", "NewsList", null, new {@class = "col-md-2"})
+    @Html.ActionLink("About Us", "Index", "AboutUs", null, new {@class = "col-md-2"})
+    @Html.ActionLink("Contact Us", "Index", "ContactUs", null, new {@class = "col-md-2"})
+    @Html.ActionLink("Image Gallery", "Index", "ImageGallery", null, new {@class = "col-md-2"})
 </div>
 <div class="row">
     <h1 class="text-center">@ViewBag.ViewTitle</h1>
@@ -32,8 +35,9 @@
     </div>
 </div>
 <hr/>
-<footer class="row">
-    <h5 id="Clock" class="text-center"></h5>
+<footer class="row text-center">
+    @Html.ActionLink("View Request Info", "Index", "RequestInfo")
+    <h5 id="Clock"></h5>
 </footer>
 </body>
 </html>

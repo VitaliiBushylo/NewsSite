@@ -7,12 +7,11 @@ using NewsSite.Models;
 
 namespace NewsSite.Controllers
 {
-    public class NewsListController : Controller
+    public class AboutUsController : Controller
     {
         public ActionResult Index()
         {
-            var news = new NewsModel();
-            return View(news);
+            return View();
         }
 
         [ChildActionOnly]
