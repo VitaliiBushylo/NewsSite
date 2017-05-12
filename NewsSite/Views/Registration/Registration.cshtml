@@ -1,0 +1,42 @@
+﻿@model NewsSite.Models.Visitor
+
+@{
+    ViewBag.Title = "Registration";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.ViewTitle = @Html.LabelForModel();
+}
+
+@using (@Html.BeginForm())
+{
+    @*@Html.EditorForModel()*@
+
+    <div class="form-group">
+        @Html.LabelFor(v => v.FirstName)
+        @Html.TextBoxFor(v => v.FirstName, new {@class = "form-control"})
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(v => v.LastName)
+        @Html.TextBoxFor(v => v.LastName, new {@class = "form-control"})
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(v => v.Email)
+        @Html.TextBoxFor(v => v.Email, new {@class = "form-control"})
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(v => v.Password)
+        @Html.TextBoxFor(v => v.Password, new {@class = "form-control"})
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(v => v.BirthDate)
+        @Html.EditorFor(v => v.BirthDate)
+    </div>
+
+    <div class="text-center">
+        <input type="submit" class="btn" value="Register" />
+    </div>
+}
+

@@ -152,6 +152,7 @@
     <Compile Include="Controllers\ContactUsController.cs" />
     <Compile Include="Controllers\ImageGalleryController.cs" />
     <Compile Include="Controllers\NewsListController.cs" />
+    <Compile Include="Controllers\RegistrationController.cs" />
     <Compile Include="Controllers\RequestInfoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -163,6 +164,8 @@
     <Compile Include="Models\Image.cs" />
     <Compile Include="Models\NewsEntry.cs" />
     <Compile Include="Models\NewsModel.cs" />
+    <Compile Include="Models\Registration.cs" />
+    <Compile Include="Models\Visitor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -175,6 +178,9 @@
     <Content Include="scripts\jquery-1.9.1.min.map" />
     <Content Include="Views\ImageGallery\Index.cshtml" />
     <Content Include="Views\Shared\_ApplicationUptime.cshtml" />
+    <Content Include="Views\Registration\Registration.cshtml" />
+    <Content Include="Views\Registration\ThanksForJoining.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Date.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

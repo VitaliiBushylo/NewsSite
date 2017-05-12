@@ -1,0 +1,10 @@
+﻿@model NewsSite.Models.Visitor
+
+@{
+    ViewBag.Title = "ThanksForJoining";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.ViewTitle = @Html.LabelForModel();
+}
+
+<h4>Thank you for joining us @Model.FirstName @Model.LastName</h4>
+
