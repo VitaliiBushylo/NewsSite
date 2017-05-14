@@ -1,0 +1,27 @@
+﻿@model List<NewsSite.Models.Visitor>
+@{
+    ViewBag.Title = "AllVisitors";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.ViewTitle = "Registered Users";
+}
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Full Name</th>
+            <th>Birth Date</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var visitor in Model)
+        {
+            <tr>
+                <td>@visitor.FirstName @visitor.LastName</td>
+                <td>@visitor.BirthDate.ToString("dd-MM-yyyy")</td>
+                <td>@visitor.Email</td>
+            </tr>
+        }
+    </tbody>
+</table>
+

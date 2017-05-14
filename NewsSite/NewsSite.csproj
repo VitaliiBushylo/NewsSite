@@ -181,6 +181,7 @@
     <Content Include="Views\Registration\Registration.cshtml" />
     <Content Include="Views\Registration\ThanksForJoining.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Date.cshtml" />
+    <Content Include="Views\Registration\AllVisitors.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

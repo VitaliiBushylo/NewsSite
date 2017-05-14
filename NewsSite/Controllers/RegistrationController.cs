@@ -35,5 +35,10 @@ namespace NewsSite.Controllers
         {
             return PartialView("_ApplicationUptime", ApplicationUpTimer.CurrentUptime);
         }
+
+        public ActionResult AllVisitors()
+        {
+            return View(Registration.Visitors);
+        }
     }
 }
