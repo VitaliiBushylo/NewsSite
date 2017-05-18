@@ -22,7 +22,7 @@ namespace NewsSite.Models
         public string LastName { get; set; }
 
         [Display(Name = "Email")]
-        [DataType(DataType.EmailAddress)]
+        //[DataType(DataType.EmailAddress)]
         public string Email { get; set; }
 
         [Display(Name = "Password")]

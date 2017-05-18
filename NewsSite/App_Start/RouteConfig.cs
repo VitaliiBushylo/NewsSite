@@ -17,8 +17,20 @@ namespace NewsSite
 
             routes.MapRoute(
                name: "HomeRoute",
-               url: "{controller}/{action}/{filename}",
-               defaults: new { controller = "ImageGallery", action = "Index", filename = UrlParameter.Optional });
+               url: "{controller}/{action}/{id}",
+               defaults: new { controller = "ImageGallery", action = "Index", id = UrlParameter.Optional });
+
+            //routes.MapRoute(
+            //   name: "HomeRoute",
+            //   url: "{controller}/{action}/{filename}",
+            //   defaults: new { controller = "ImageGallery", action = "Index", filename = UrlParameter.Optional });
+
+            //routes.MapRoute(
+            //   name: "RegistrationRoute",
+            //   url: "{controller}/{action}/{visitorId}",
+            //   defaults: new { controller = "Registration", action = "User", visitorId = 0 });
+
+
         }
     }
 }

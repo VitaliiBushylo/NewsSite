@@ -31,7 +31,7 @@
 <img id="CurrentImg"
      currentIndex="0"
      totalCount="@Model.Count"
-     src="@Url.Action("Index", "ImageGallery", new {filename = @Model.FirstOrDefault()})"
+     src="@Url.Action("Index", "ImageGallery", new {id = @Model.FirstOrDefault()})"
      class="img-thumbnail"
      alt="@Model.FirstOrDefault()" />
 <div class="row">

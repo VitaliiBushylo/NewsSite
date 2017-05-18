@@ -13,6 +13,6 @@ namespace NewsSite.Models
             if (Visitors == null)
                 Visitors = new List<Visitor>();
         }
-        public static IList<Visitor> Visitors { get; set; }
+        public static List<Visitor> Visitors { get; set; }
     }
 }

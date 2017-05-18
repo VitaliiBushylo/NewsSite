@@ -10,14 +10,14 @@ namespace NewsSite.Controllers
 {
     public class ImageGalleryController : Controller
     {
-        public ActionResult Index(string filename)
+        public ActionResult Index(string id)
         {
-            if (string.IsNullOrEmpty(filename))
+            if (string.IsNullOrEmpty(id))
                 return View(new List<string>());
 
             try
             {
-                return new FileStreamResult(new FileStream(string.Format(@"D:\GL\desktop images\temp\{0}.jpg", filename), FileMode.Open), "image/jpeg");
+                return new FileStreamResult(new FileStream(string.Format(@"D:\GL\desktop images\temp\{0}.jpg", id), FileMode.Open), "image/jpeg");
             }
             catch (Exception ex)
             {
