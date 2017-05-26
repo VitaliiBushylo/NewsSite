@@ -25,14 +25,14 @@ namespace NewsSite.Controllers
                     int lastVisitorId = Registration.Visitors.Any() ? Registration.Visitors.Max(v => v.Id) : 0;
                     visitor.Id = ++lastVisitorId;
                 }
-                
+
                 Registration.Visitors.Add(visitor);
 
                 return View("ThanksForJoining", visitor);
             }
             else
             {
-                return View("Registration", new Visitor {BirthDate = DateTime.Now});
+                return View("Registration", new Visitor { BirthDate = DateTime.Now });
             }
         }
 
@@ -44,9 +44,22 @@ namespace NewsSite.Controllers
 
 
         [ActionName("All")]
-        public ActionResult AllVisitors()
+        public ActionResult AllVisitors(string orderBy)
         {
             return View("AllVisitors", Registration.Visitors);
+        }
+
+        public ActionResult Ordered(string orderBy)
+        {
+            switch (orderBy)
+            {
+                case "Id": { return Json(Registration.Visitors.OrderByDescending(v => v.Id).Select(s => new { Id = s.Id, FirstName = s.FirstName, LastName = s.LastName, BirthDate = s.BirthDate.ToString("dd-MM-yyyy"), Email = s.Email }), JsonRequestBehavior.AllowGet); }
+                case "FirstName": { return View("AllVisitors", Registration.Visitors.OrderBy(v => v.FirstName).ToList()); }
+                case "LastName": { return View("AllVisitors", Registration.Visitors.OrderBy(v => v.LastName).ToList()); }
+                case "BirthDate": { return View("AllVisitors", Registration.Visitors.OrderBy(v => v.BirthDate).ToList()); }
+                case "Email": { return View("AllVisitors", Registration.Visitors.OrderBy(v => v.Email).ToList()); }
+                default: { return PartialView("VisitorList", Registration.Visitors); }
+            }
         }
 
         [HttpGet]
@@ -85,5 +98,7 @@ namespace NewsSite.Controllers
                 return RedirectToAction("All");
             }
         }
+
+
     }
 }

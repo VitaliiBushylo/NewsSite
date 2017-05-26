@@ -1,0 +1,15 @@
+﻿@model List<NewsSite.Models.Visitor>
+
+@foreach (var visitor in Model)
+{
+    <tr>
+        <td>@visitor.Id</td>
+        <td>@visitor.FirstName</td>
+        <td>@visitor.LastName</td>
+        <td>@visitor.BirthDate.ToString("dd-MM-yyyy")</td>
+        <td>@visitor.Email</td>
+        <td>
+            @Html.ActionLink("Edit", string.Format("User/{0}", visitor.Id), "Registration", null, new { @class = "btn btn-info" })
+        </td>
+    </tr>
+}

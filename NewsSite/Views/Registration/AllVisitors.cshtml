@@ -3,30 +3,47 @@
     ViewBag.Title = "Registered Users";
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.ViewTitle = "Registered Users";
+    AjaxOptions ajaxOps = new AjaxOptions
+    {
+        Url = Url.Action("Ordered", new { orderBy = "Id" }),
+        InsertionMode = InsertionMode.Replace,
+        UpdateTargetId = "RegisteredUsersTableBody",
+        OnSuccess = "processData"
+    };
 }
 
 <table Id="RegisteredUsers" class="table table-hover">
     <thead>
-        <tr>
-            <th>Full Name</th>
-            <th>Birth Date</th>
-            <th>Email</th>
-            <th/>
-        </tr>
+    <tr>
+        <th>
+            @Ajax.ActionLink("Id", "Ordered", new { orderBy = "Id"}, new AjaxOptions
+       {
+           Url = Url.Action("Ordered", new { orderBy = "Id" }),
+           InsertionMode = InsertionMode.Replace,
+           UpdateTargetId = "RegisteredUsersTableBody",
+           OnSuccess = "processData"
+       })
+        </th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Birth Date</th>
+        <th>Email</th>
+        <th/>
+    </tr>
     </thead>
-    <tbody>
-        @foreach (var visitor in Model)
-        {
-            <tr>
-                <td>@visitor.FirstName @visitor.LastName</td>
-                <td>@visitor.BirthDate.ToString("dd-MM-yyyy")</td>
-                <td>@visitor.Email</td>
-                <td>
-                    @*@Html.ActionLink("Edit", "User", "Registration", new { visitorId = visitor.Id}, new {@class="btn btn-info"})*@
-                    @Html.ActionLink("Edit", string.Format("User/{0}", visitor.Id), "Registration", null, new { @class = "btn btn-info" })
-                </td>
-            </tr>
-            }
+    <tbody Id="RegisteredUsersTableBody">
+        @Html.Action("Ordered")
     </tbody>
 </table>
 
+<script type="text/javascript">
+    function processData(data) {
+        var target = $("#RegisteredUsersTableBody");
+        target.empty();
+        for (var i = 0; i < data.length; i++) {
+            var person = data[i];
+            target.append("<tr><td>" + person.Id + "</td><td>"
+            + person.FirstName + "</td><td>" + person.LastName + "</td><td>" + person.BirthDate + "</td><td>" + person.Email + "</td></tr>");
+        }
+    }
+</script>
