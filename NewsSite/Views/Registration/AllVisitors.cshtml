@@ -3,31 +3,46 @@
     ViewBag.Title = "Registered Users";
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.ViewTitle = "Registered Users";
-    AjaxOptions ajaxOps = new AjaxOptions
-    {
-        Url = Url.Action("Ordered", new { orderBy = "Id" }),
-        InsertionMode = InsertionMode.Replace,
-        UpdateTargetId = "RegisteredUsersTableBody",
-        OnSuccess = "processData"
-    };
 }
 
 <table Id="RegisteredUsers" class="table table-hover">
     <thead>
     <tr>
-        <th>
-            @Ajax.ActionLink("Id", "Ordered", new { orderBy = "Id"}, new AjaxOptions
+        <th>@Ajax.ActionLink("Id", "Ordered", new { orderBy = "Id"}, new AjaxOptions
        {
            Url = Url.Action("Ordered", new { orderBy = "Id" }),
            InsertionMode = InsertionMode.Replace,
            UpdateTargetId = "RegisteredUsersTableBody",
            OnSuccess = "processData"
-       })
-        </th>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Birth Date</th>
-        <th>Email</th>
+       })</th>
+        <th>@Ajax.ActionLink("First Name", "Ordered", new { orderBy = "FirstName" }, new AjaxOptions
+       {
+           Url = Url.Action("Ordered", new { orderBy = "FirstName" }),
+           InsertionMode = InsertionMode.Replace,
+           UpdateTargetId = "RegisteredUsersTableBody",
+           OnSuccess = "processData"
+       })</th>
+        <th>@Ajax.ActionLink("Last Name", "Ordered", new { orderBy = "LastName" }, new AjaxOptions
+       {
+           Url = Url.Action("Ordered", new { orderBy = "LastName" }),
+           InsertionMode = InsertionMode.Replace,
+           UpdateTargetId = "RegisteredUsersTableBody",
+           OnSuccess = "processData"
+       })</th>
+        <th>@Ajax.ActionLink("Birth Date", "Ordered", new { orderBy = "BirthDate" }, new AjaxOptions
+       {
+           Url = Url.Action("Ordered", new { orderBy = "BirthDate" }),
+           InsertionMode = InsertionMode.Replace,
+           UpdateTargetId = "RegisteredUsersTableBody",
+           OnSuccess = "processData"
+       })</th>
+        <th>@Ajax.ActionLink("Email", "Ordered", new { orderBy = "Email" }, new AjaxOptions
+       {
+           Url = Url.Action("Ordered", new { orderBy = "Email" }),
+           InsertionMode = InsertionMode.Replace,
+           UpdateTargetId = "RegisteredUsersTableBody",
+           OnSuccess = "processData"
+       })</th>
         <th/>
     </tr>
     </thead>
@@ -36,6 +51,8 @@
     </tbody>
 </table>
 
+
+
 <script type="text/javascript">
     function processData(data) {
         var target = $("#RegisteredUsersTableBody");
@@ -43,7 +60,8 @@
         for (var i = 0; i < data.length; i++) {
             var person = data[i];
             target.append("<tr><td>" + person.Id + "</td><td>"
-            + person.FirstName + "</td><td>" + person.LastName + "</td><td>" + person.BirthDate + "</td><td>" + person.Email + "</td></tr>");
+                + person.FirstName + "</td><td>" + person.LastName + "</td><td>" + person.BirthDate + "</td><td>" + person.Email + "</td><td>" +
+                "<a class=\"btn btn-info\" href=\"/Registration/User/" + person.Id + "\">Edit</a>" + "</td></tr>");
         }
     }
 </script>
