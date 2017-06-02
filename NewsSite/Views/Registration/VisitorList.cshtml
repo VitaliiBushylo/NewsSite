@@ -9,7 +9,12 @@
         <td>@visitor.BirthDate.ToString("dd-MM-yyyy")</td>
         <td>@visitor.Email</td>
         <td>
-            @Html.ActionLink("Edit", string.Format("User/{0}", visitor.Id), "Registration", null, new { @class = "btn btn-info" })
+            @*@Html.ActionLink("Edit", string.Format("User/{0}", visitor.Id), "Registration", null, new { @class = "btn btn-info" })*@
+            @Ajax.ActionLink("Edit", string.Format("User/{0}", visitor.Id), new AjaxOptions
+       {
+           Url = Url.Action("User", new { id = visitor.Id }),
+           UpdateTargetId = "editPersonForm"
+       })
         </td>
     </tr>
 }

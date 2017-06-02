@@ -1,0 +1,52 @@
+﻿@model NewsSite.Models.Visitor
+
+@helper GenerateFormBody()
+{
+    <div class="form-group">
+        @Html.LabelFor(v => v.FirstName)
+        @Html.TextBoxFor(v => v.FirstName, new { @class = "form-control", @id = "firstName" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(v => v.LastName)
+        @Html.TextBoxFor(v => v.LastName, new { @class = "form-control", @id = "lastName" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(v => v.Email)
+        @Html.TextBoxFor(v => v.Email, new { @class = "form-control", @id = "Email" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(v => v.Password)
+        @Html.TextBoxFor(v => v.Password, new { @class = "form-control", @id = "Password" })
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(v => v.BirthDate)
+        @Html.EditorFor(v => v.BirthDate)
+    </div>
+}
+
+@if (Model.Id == 0)
+{
+    using (Html.BeginForm())
+    {
+        @GenerateFormBody()
+
+        <input type="submit" class="btn btn-info text-center" value="Register" />
+    }
+}
+else
+{
+    using (Ajax.BeginForm("User", new { }, new AjaxOptions
+    {
+        Url = Url.Action("User"),
+        OnComplete = "hideEditForm"
+    }))
+    {
+        @GenerateFormBody()
+
+        <input type="submit" class="btn btn-info text-center" value="Save changes" />
+    }
+}

@@ -6,37 +6,4 @@
     ViewBag.ViewTitle = Model.Id == 0 ? Html.LabelForModel() : new MvcHtmlString(string.Format("Editing user - {0} {1}", Model.FirstName, Model.LastName));
 }
 
-@using (@Html.BeginForm())
-{
-    @*@Html.EditorForModel()*@
-
-    <div class="form-group">
-        @Html.LabelFor(v => v.FirstName)
-        @Html.TextBoxFor(v => v.FirstName, new {@class = "form-control"})
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(v => v.LastName)
-        @Html.TextBoxFor(v => v.LastName, new {@class = "form-control"})
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(v => v.Email)
-        @Html.TextBoxFor(v => v.Email, new {@class = "form-control"})
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(v => v.Password)
-        @Html.TextBoxFor(v => v.Password, new {@class = "form-control"})
-    </div>
-
-    <div class="form-group">
-        @Html.LabelFor(v => v.BirthDate)
-        @Html.EditorFor(v => v.BirthDate)
-    </div>
-
-    <div class="text-center">
-        <input type="submit" class="btn" value="@(Model.Id == 0 ? "Register" : "Save changes")" />
-    </div>
-}
-
+@Html.Partial("EditVisitorForm", Model)
