@@ -2,14 +2,13 @@
 
 @foreach (var visitor in Model)
 {
-    <tr>
+    <tr id="@visitor.Id">
         <td>@visitor.Id</td>
-        <td>@visitor.FirstName</td>
-        <td>@visitor.LastName</td>
-        <td>@visitor.BirthDate.ToString("dd-MM-yyyy")</td>
-        <td>@visitor.Email</td>
+        <td id="firstName">@visitor.FirstName</td>
+        <td id="lastName">@visitor.LastName</td>
+        <td id="birthDate">@visitor.BirthDate.ToString("dd-MM-yyyy")</td>
+        <td id="email">@visitor.Email</td>
         <td>
-            @*@Html.ActionLink("Edit", string.Format("User/{0}", visitor.Id), "Registration", null, new { @class = "btn btn-info" })*@
             @Ajax.ActionLink("Edit", string.Format("User/{0}", visitor.Id), new AjaxOptions
        {
            Url = Url.Action("User", new { id = visitor.Id }),

@@ -67,7 +67,11 @@
 <script type="text/javascript">
     function hideEditForm(response) {
         var visitor = JSON.parse(response.responseText);
-        $('#firstName').value(visitor.FirstName);
+        var mainselector = 'tr[id=' + visitor.Id + ']';
+        $(mainselector + ' td[id=\'firstName\']').text(visitor.FirstName);
+        $(mainselector + ' td[id=\'lastName\']').text(visitor.LastName);
+        //$(mainselector + ' td[id=\'birthDate\']').text(visitor.BirthDate);
+        $(mainselector + ' td[id=\'email\']').text(visitor.Email);
         $('#editPersonForm').empty();
     }
 </script>
