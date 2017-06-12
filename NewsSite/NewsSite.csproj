@@ -161,6 +161,7 @@
     </Compile>
     <Compile Include="Infrastructure\RequestInfoView.cs" />
     <Compile Include="Infrastructure\ViewEngine.cs" />
+    <Compile Include="Infrastructure\VisitorModelBinder.cs" />
     <Compile Include="Models\ApplicationUpTimer.cs" />
     <Compile Include="Models\FeedbackEntry.cs" />
     <Compile Include="Models\Image.cs" />

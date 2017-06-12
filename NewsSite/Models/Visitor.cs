@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NewsSite.Infrastructure;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -9,6 +10,7 @@ using System.Web.Mvc;
 
 namespace NewsSite.Models
 {
+    [ModelBinder(typeof(VisitorModelBinder))]
     [DisplayName("Join us")]
     public class Visitor
     {
@@ -30,8 +32,7 @@ namespace NewsSite.Models
         public string Password { get; set; }
 
         [Display(Name = "Birth Date")]
-        [DataType(DataType.Date)]
-        //[UIHint("Date")]
+        [DataType(DataType.Date)]        
         public DateTime BirthDate { get; set; }
     }
 }

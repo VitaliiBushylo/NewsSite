@@ -1,7 +1,18 @@
 ﻿@model DateTime
 
+@if (ViewData["Disabled"].ToString() == "0")
+{
 <div>
     @Html.DropDownListFor(m => m.Day, new SelectList(Enumerable.Range(1, 31)))
     @Html.DropDownListFor(m => m.Month, new SelectList(Enumerable.Range(1, 12)))
     @Html.DropDownListFor(m => m.Year, new SelectList(Enumerable.Range(1970, 2000)))
 </div>
+}
+else
+{
+    <div>
+        @Html.DropDownListFor(m => m.Day, new SelectList(Enumerable.Range(1, 31)), new { @disabled=""})
+        @Html.DropDownListFor(m => m.Month, new SelectList(Enumerable.Range(1, 12)), new { @disabled = "" })
+        @Html.DropDownListFor(m => m.Year, new SelectList(Enumerable.Range(1970, 2000)), new { @disabled = "" })
+    </div>
+}

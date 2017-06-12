@@ -1,6 +1,6 @@
 ﻿@model NewsSite.Models.Visitor
 
-@helper GenerateFormBody()
+@helper GenerateFormBody(int id)
 {
     <div class="form-group">
         @Html.LabelFor(v => v.FirstName)
@@ -19,12 +19,12 @@
 
     <div class="form-group">
         @Html.LabelFor(v => v.Password)
-        @Html.TextBoxFor(v => v.Password, new { @class = "form-control"})
+        @Html.TextBoxFor(v => v.Password, new { @class = "form-control" })
     </div>
 
     <div class="form-group">
         @Html.LabelFor(v => v.BirthDate)
-        @Html.EditorFor(v => v.BirthDate)
+        @Html.EditorFor(v => v.BirthDate, new { Disabled = id })
     </div>
 }
 
@@ -32,7 +32,7 @@
 {
     using (Html.BeginForm())
     {
-        @GenerateFormBody()
+        @GenerateFormBody(Model.Id)
 
         <input type="submit" class="btn btn-info text-center" value="Register" />
     }
@@ -45,7 +45,7 @@ else
         OnComplete = "hideEditForm"
     }))
     {
-        @GenerateFormBody()
+        @GenerateFormBody(Model.Id)
 
         <input type="submit" class="btn btn-info text-center" value="Save changes" />
     }
