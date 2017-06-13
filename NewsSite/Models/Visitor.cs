@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.Dynamic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,7 +33,7 @@ namespace NewsSite.Models
         public string Password { get; set; }
 
         [Display(Name = "Birth Date")]
-        [DataType(DataType.Date)]        
+        [DataType(DataType.Date)]
         public DateTime BirthDate { get; set; }
     }
 }

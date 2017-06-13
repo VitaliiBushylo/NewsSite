@@ -17,6 +17,8 @@ namespace NewsSite
             RouteConfig.RegisterRoutes(RouteTable.Routes);
 
             ViewEngines.Engines.Add(new ViewEngine());
+            
+            ModelBinders.Binders.Add(typeof(Visitor), new VisitorModelBinder());
 
             ApplicationUpTimer.SetStartTime();
         }
