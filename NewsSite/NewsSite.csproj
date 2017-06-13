@@ -187,6 +187,7 @@
     <Content Include="Views\Registration\AllVisitors.cshtml" />
     <Content Include="Views\Registration\VisitorList.cshtml" />
     <Content Include="Views\Registration\EditVisitorForm.cshtml" />
+    <Content Include="Views\NewsList\CreateNews.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

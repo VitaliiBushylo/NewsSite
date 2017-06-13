@@ -6,24 +6,31 @@
     ViewBag.ViewTitle = "News Stream";
 }
 
-    <table class="table table-hover">
-        <tbody>
-            @{
-                foreach (var newsEntry in @Model.News)
-                {
-                    <tr>
-                        <td class="text-left">
-                            <p class="text-right">@newsEntry.CreatedOn.ToString("dd-MM-yyyy HH:mm")</p>
-                            <h3>@newsEntry.Title</h3>
-                            <p>@newsEntry.Content</p>
-                            <p>
-                                <b><a href="@newsEntry.Origin.AbsoluteUri" >Original text</a></b>
-                            </p>
-                        </td>
-                    </tr>
-                }
+<div class="text-right" style="padding-bottom: 5px;">
+    @Html.ActionLink("Create news", "CreateNews", null, new { @class = "btn btn-info" })
+</div>
+
+<table class="table table-hover">
+    <tbody>
+        @{
+            foreach (var newsEntry in @Model.News)
+            {
+                <tr>
+                    <td class="text-left">
+                        <p class="text-right">@newsEntry.CreatedOn.ToString("dd-MM-yyyy HH:mm")</p>
+                        <h3>@newsEntry.Title</h3>
+                        <p>@newsEntry.Content</p>
+                        @if (newsEntry.Origin != null)
+                        {
+                        <p>
+                            <b><a href="@newsEntry.Origin.AbsoluteUri">Original text</a></b>
+                        </p>
+                        }
+                    </td>
+                </tr>
             }
-        </tbody>
-    </table>
-    <h4 class="text-right">Total news: @Model.News.Count</h4>
+        }
+    </tbody>
+</table>
+<h4 class="text-right">Total news: @Model.News.Count</h4>
 

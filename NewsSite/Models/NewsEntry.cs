@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace NewsSite.Models
 {
@@ -8,8 +9,13 @@ namespace NewsSite.Models
         {
             CreatedOn = DateTime.Now;
         }
+
+        [Display(Name = "Article Title")]
         public string Title { get; set; }
+
+        [Display(Name = "Article Content")]
         public string Content { get; set; }
+
         public Uri Origin { get; set; }
         public DateTime CreatedOn { get; set; }
     }

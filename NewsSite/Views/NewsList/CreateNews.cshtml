@@ -1,0 +1,25 @@
+﻿@model List<NewsSite.Models.NewsEntry>
+@{
+    ViewBag.Title = "Create News";
+    ViewBag.ViewTitle = "Create News";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    foreach (var newsEntry in Model)
+    {
+        <div class="form-group">
+            @Html.LabelFor(m => newsEntry.Title)
+            @Html.TextBoxFor(m => newsEntry.Title, new { @class ="form-control"})
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => newsEntry.Content)
+            @Html.TextAreaFor(m => newsEntry.Content, new { @class = "form-control" })
+        </div>
+        <hr/>
+    }
+
+    <input type="submit" class="btn btn-info text-center" value="Create News" />
+}
