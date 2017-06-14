@@ -1,4 +1,4 @@
-﻿@model List<NewsSite.Models.NewsEntry>
+﻿@model IList<NewsSite.Models.NewsEntry>
 @{
     ViewBag.Title = "Create News";
     ViewBag.ViewTitle = "Create News";
@@ -7,19 +7,19 @@
 
 @using (Html.BeginForm())
 {
-    foreach (var newsEntry in Model)
+    for (int i = 0; i < Model.Count; i++)
     {
         <div class="form-group">
-            @Html.LabelFor(m => newsEntry.Title)
-            @Html.TextBoxFor(m => newsEntry.Title, new { @class ="form-control"})
+            @Html.Label("[" + i + "].Title")
+            @Html.TextBox("[" + i + "].Title", Model[i].Title, new { @class = "form-control" })
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(m => newsEntry.Content)
-            @Html.TextAreaFor(m => newsEntry.Content, new { @class = "form-control" })
+            @Html.Label("[" + i + "].Content")
+            @Html.TextArea("[" + i + "].Content", Model[i].Content, new { @class = "form-control" })
         </div>
-        <hr/>
+        <hr />
     }
-
+    
     <input type="submit" class="btn btn-info text-center" value="Create News" />
 }

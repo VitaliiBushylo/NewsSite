@@ -1,4 +1,4 @@
-﻿@model NewsSite.Models.NewsModel
+﻿@model List<NewsSite.Models.NewsEntry>
 
 @{
     Layout = @"..\Shared\_Layout.cshtml";
@@ -13,7 +13,7 @@
 <table class="table table-hover">
     <tbody>
         @{
-            foreach (var newsEntry in @Model.News)
+            foreach (var newsEntry in Model)
             {
                 <tr>
                     <td class="text-left">
@@ -32,5 +32,5 @@
         }
     </tbody>
 </table>
-<h4 class="text-right">Total news: @Model.News.Count</h4>
+<h4 class="text-right">Total news: @Model.Count</h4>
 

@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace NewsSite.Models
 {
-    public class NewsModel
+    public static class NewsModel
     {
-        public NewsModel()
+        static NewsModel()
         {
             News = CreateDummyNews();
         }
-        public List<NewsEntry> News { get; set; }
+        public static List<NewsEntry> News { get; set; }
 
-        private List<NewsEntry> CreateDummyNews()
+        private static List<NewsEntry> CreateDummyNews()
         {
             var news1 = new NewsEntry()
             {

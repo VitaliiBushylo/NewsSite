@@ -9,11 +9,9 @@ namespace NewsSite.Controllers
 {
     public class NewsListController : Controller
     {
-        NewsModel newsModel = new NewsModel();
-
         public ActionResult Index()
         {            
-            return View(newsModel);
+            return View(NewsModel.News);
         }
 
         [HttpGet]
@@ -23,18 +21,16 @@ namespace NewsSite.Controllers
         }
 
         [HttpPost]
-        public ActionResult CreateNews(FormCollection newsToCreate)
+        public ActionResult CreateNews(IList<NewsEntry> newsToCreate)
         {
             
             foreach (var news in newsToCreate)
             {
-
-                var val = newsToCreate[news.ToString()];
-               // if (!string.IsNullOrEmpty(news.Title) && !string.IsNullOrEmpty(news.Content))
-               // {
-               //     news.CreatedOn = DateTime.Now;
-               //     newsModel.News.Add(news);
-               // }
+                if (!string.IsNullOrEmpty(news.Title) && !string.IsNullOrEmpty(news.Content))
+                {
+                    news.CreatedOn = DateTime.Now;
+                    NewsModel.News.Add(news);
+                }
             }
 
             return RedirectToAction("Index");
