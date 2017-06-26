@@ -11,7 +11,7 @@
 @{
     try
     {
-        foreach (var filePath in Directory.EnumerateFiles(@"D:\GL\desktop images\temp"))
+        foreach (var filePath in Directory.EnumerateFiles(@"E:\GL\desktop images\temp"))
         {
             var img = new FileInfo(filePath);
             var name = img.Name.Substring(0, img.Name.IndexOf("."));

@@ -17,7 +17,7 @@ namespace NewsSite.Controllers
 
             try
             {
-                return new FileStreamResult(new FileStream(string.Format(@"D:\GL\desktop images\temp\{0}.jpg", id), FileMode.Open), "image/jpeg");
+                return new FileStreamResult(new FileStream(string.Format(@"E:\GL\desktop images\temp\{0}.jpg", id), FileMode.Open), "image/jpeg");
             }
             catch (Exception ex)
             {
